@@ -1,0 +1,23 @@
+ <tr id="<%= dom_id friend%>">
+  <td>
+    <%= link_to friend.name, friend %> 
+  </td>
+  <td>
+    <%= friend.birthday %>
+  </td>
+  <td>
+    <%= friend.email %>
+  </td>
+  <td>
+    <%= friend.phone %>
+  </td>
+  <td>
+    <%= "@" + friend.x %>
+  </td>
+
+  <% if user_signed_in? %>
+    <td>
+      <%= friend.user_id %>
+    </td>
+  <% end %>
+</tr> 

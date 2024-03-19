@@ -1,0 +1,43 @@
+<%= form_with(model: friend) do |form| %>
+  <% if friend.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+    <div class="mb-3">
+      <%= form.text_field :name, class:"form-control", placeholder:"Name" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.date_field :birthday, class:"form-control", placeholder:"Birthday", type:"text", onfocus:"(this.type='date')", onblur:"(this.type='text')", id:"date" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.text_field :email, class:"form-control", placeholder:"E-mail" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.text_field :phone, class:"form-control", placeholder:"Phone Number" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">@</span>
+      <%= form.text_field :x, class:"form-control", placeholder:"X - Twitter" %>
+    </div>
+    <%= form.number_field :user_id, id: :friend_user_id, value:current_user.id, type:"hidden" %>
+    <div class="mb-3">
+      <%= form.text_area :description, class:"form-control", rows:"3", placeholder:"Tell me more about your friend..." %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit class:'btn btn-primary' %>
+    </div>
+  </form>
+<% end %>

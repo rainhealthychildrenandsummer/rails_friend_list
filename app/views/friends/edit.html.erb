@@ -1,0 +1,15 @@
+<h1>Editing friend</h1>
+
+<%= render "form", friend: @friend %>
+
+<br>
+
+
+<table>
+		<td>
+			<%= button_to "Exclude", @friend, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:'btn btn-danger' %>
+		</td>
+		<td>
+	  		<%= link_to "Back", friends_path, class:'btn btn-secondary' %>
+	  	</td>
+	</table>
